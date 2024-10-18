@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <main
       style={{
-        backgroundColor: '#DEF8EBFF',
+        backgroundColor: '#E5E5E5FF',
       }}
     >
       <Navbar />
@@ -67,10 +67,16 @@ export default function Home() {
           <Typography.Title level={3} className='font-medium mb-10 text-center'>
             Our Services
           </Typography.Title>
-          <Features
+          <FeaturesV2
             gridColumns={2}
             variant='card'
-            features={dataSite.services}
+            version='v2'
+            features={dataSite.services.map((service) => ({
+              ...service,
+              title: service.title,
+              description: service.description,
+              src: service.image,
+            }))}
           />
         </div>
         <div id='courses'>
@@ -112,7 +118,7 @@ export default function Home() {
             }}
             variantItem='card'
             variant='grid'
-            backgroundColor='#CFE5BAFF'
+            backgroundColor='#C9C6C6FF'
             references={dataSite.references}
             gridColumns={3}
             titleAlign='center'
